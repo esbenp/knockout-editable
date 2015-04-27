@@ -1,13 +1,17 @@
 define([
     'knockout',
-    'lib/knockout-editable',
-    '3rdparty/unexpected'
-], function (ko, knockoutEditable, unexpected) {
+    '3rdparty/unexpected',
+    'lib/knockout-editable'
+], function (ko, unexpected) {
     var expect = unexpected.clone();
 
-    describe('initial', function () {
-        it('foos', function () {
-            expect(knockoutEditable, 'to be an object');
+    describe('installation', function () {
+        it('adds ko.extenders.editable', function () {
+            expect(ko.extenders.editable, 'to be an object');
+        });
+
+        it('adds ko.editable', function () {
+            expect(ko.extenders.editable, 'to be an object');
         });
     });
 });
