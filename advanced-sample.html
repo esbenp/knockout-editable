@@ -25,7 +25,7 @@ fieldset legend {
     font-weight: bold;
 }
 
-fieldset label 
+fieldset label
 {
     float: left;
     width: 6em;
@@ -107,7 +107,7 @@ input[type="text"] { width: 300px; }
             var self = this;
             self.FirstName = ko.observable(firstName);
             self.LastName = ko.observable(lastName);
-            // 
+            //
             self.Phones = ko.observableArray(ko.utils.arrayMap(phones, function (phone) {
                 return { Number: ko.observable(phone.number), Title: ko.observable(phone.title) };
             }));

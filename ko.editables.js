@@ -6,7 +6,7 @@
 // License: MIT (http://www.opensource.org/licenses/mit-license.php)
 
 /*
-Exports: 
+Exports:
 ko.extenders.editable: ko.observable().extend({editable: true|false});
 ko.editable: ko.editable(objectWithObservables, boolean autoInit);
 
