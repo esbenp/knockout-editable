@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+  </head>
+  <body>
+    <div id="test" style="position: absolute; z-index: -1000; opacity: 0; filter: ~'alpha(opacity=0)';"></div>
+
+    <div id="mocha"></div>
+
+    <script>
+        var require = {
+            baseUrl: '..',
+            paths: {
+                knockout: '3rdparty/knockout-latest.debug'
+            }
+        };
+    </script>
+    <script src="../3rdparty/mocha.js"></script>
+    <script src="../3rdparty/require.js" data-main="test/runner"></script>
+  </body>
+</html>
