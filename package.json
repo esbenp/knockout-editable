@@ -2,7 +2,7 @@
   "name": "knockout-editable",
   "description": "Plugin for Knockout which allows to accept or roll back changes on observables and view models",
   "author": "Roman Gomolko",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git@github.com:One-com/knockout-editable.git"
