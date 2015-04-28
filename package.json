@@ -13,7 +13,7 @@
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha  -- --reporter dot"
   },
   "devDependencies": {
-    "istanbul": "0.3.0",
+    "istanbul": "0.3.13",
     "knockout": "3.3.0",
     "mocha": "2.2.4",
     "requirejs": "2.1.17",
