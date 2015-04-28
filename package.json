@@ -9,13 +9,13 @@
   },
   "main": "lib/knockout-editable.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha-phantomjs test/index.html"
+    "test": "./node_modules/.bin/mocha",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha  -- --reporter dot"
   },
   "devDependencies": {
+    "istanbul": "0.3.0",
     "knockout": "3.3.0",
     "mocha": "2.2.4",
-    "mocha-phantomjs": "3.5.3",
-    "phantomjs": "1.9.16",
     "requirejs": "2.1.17",
     "unexpected": "7.0.1"
   },

@@ -1,11 +1,9 @@
-/* global define */
-define([
-    'knockout',
-    '3rdparty/unexpected',
-    'lib/knockout-editable'
-], function (ko, unexpected) {
-    var expect = unexpected.clone();
+var ko = require('knockout');
+var expect = require('unexpected').clone();
 
+require('../lib/knockout-editable');
+
+describe('knockout-editable', function () {
     describe('installation', function () {
         it('adds ko.extenders.editable', function () {
             expect(ko.extenders.editable, 'to be an object');
