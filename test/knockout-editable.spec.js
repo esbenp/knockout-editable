@@ -31,6 +31,12 @@ describe('knockout-editable', function () {
 
                 that.showBalloon = ko.observable(false).extend({editable: false});
 
+                that.observableArrayWithObservables = ko.observableArray([
+                    ko.observable('lol'),
+                    ko.observable('hor'),
+                    ko.observable('dffd')
+                ]);
+
                 ko.editable(that);
             };
 
@@ -49,7 +55,7 @@ describe('knockout-editable', function () {
                 expect(viewModel.hasChanges(), 'to be', false);
             });
 
-            describe('when changing values', function () {
+            describe('when changing editable values directly on the viewModel', function () {
                 beforeEach(function () {
                     viewModel.name('Quux');
                     viewModel.surname('Bar');
@@ -81,6 +87,24 @@ describe('knockout-editable', function () {
                     viewModel.rollback();
 
                     expect(viewModel.showBalloon(), 'to be', true);
+                });
+            });
+
+            describe('when changing of an observable within an observableArray', function () {
+                beforeEach(function () {
+                    viewModel.observableArrayWithObservables()[1]('borg');
+                });
+
+                it('sets hasChanges to true on viewModel', function () {
+                    expect(viewModel.hasChanges(), 'to be', true);
+                });
+
+                it('keeps hasChanges false on the observableArray', function () {
+                    expect(viewModel.observableArrayWithObservables.hasChanges(), 'to be', false);
+                });
+
+                it('sets hasChanges true on the updated item in the observableArray', function () {
+                    expect(viewModel.observableArrayWithObservables()[1].hasChanges(), 'to be', true);
                 });
             });
 
