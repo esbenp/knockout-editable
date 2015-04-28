@@ -31,6 +31,8 @@ define([
 
                 that.surname = ko.observable(data.surname);
 
+                that.showBalloon = ko.observable(false).extend({editable: false});
+
                 ko.editable(that);
             };
 
@@ -46,7 +48,7 @@ define([
             });
 
             it('starts out with hasChanges=false', function () {
-                expect(viewModel.hasChanges(), 'to be false');
+                expect(viewModel.hasChanges(), 'to be', false);
             });
 
             describe('when changing values', function () {
@@ -56,15 +58,31 @@ define([
                 });
 
                 it('sets hasChanges to true', function () {
-                    expect(viewModel.hasChanges(), 'to be true');
+                    expect(viewModel.hasChanges(), 'to be', true);
                 });
 
                 it('sets hasChanges to true on properties that have changed value', function () {
-                    expect(viewModel.name.hasChanges(), 'to be true');
+                    expect(viewModel.name.hasChanges(), 'to be', true);
                 });
 
                 it('keeps hasChanges false on properties that have kept the same value', function () {
-                    expect(viewModel.surname.hasChanges(), 'to be false');
+                    expect(viewModel.surname.hasChanges(), 'to be', false);
+                });
+            });
+
+            describe('when changing value of observable extended with editable:false', function () {
+                beforeEach(function () {
+                    viewModel.showBalloon(true);
+                });
+
+                it('keeps hasChanges false', function () {
+                    expect(viewModel.hasChanges(), 'to be', false);
+                });
+
+                it('does not roll back changed value when calling rollback', function () {
+                    viewModel.rollback();
+
+                    expect(viewModel.showBalloon(), 'to be', true);
                 });
             });
 
@@ -76,7 +94,7 @@ define([
                 });
 
                 it('sets hasChanges back to false', function () {
-                    expect(viewModel.hasChanges(), 'to be false');
+                    expect(viewModel.hasChanges(), 'to be', false);
                 });
 
                 it('restores previous values', function () {
@@ -92,15 +110,13 @@ define([
                 });
 
                 it('sets hasChanges back to false', function () {
-                    expect(viewModel.hasChanges(), 'to be false');
+                    expect(viewModel.hasChanges(), 'to be', false);
                 });
 
                 it('retains new values', function () {
                     expect(viewModel.name(), 'to be', 'Quux');
                 });
             });
-
         });
-
     });
 });
