@@ -1,0 +1,16 @@
+{
+  "name": "knockout-editable",
+  "version": "1.0.1",
+  "homepage": "https://github.com/esbenp/knockout-editable",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "~3.3.0"
+  }
+}
